@@ -1,15 +1,14 @@
 # Breathe roadmap
 
 ## Repo standard (nimble reference)
-- [ ] README.md with icon.svg, badges, live link, Features
-- [ ] LICENSE (MIT), SECURITY.md, CLAUDE.md, WHITEPAPER.md, architecture.svg, icon.svg
-- [ ] icon.svg 200x200 dark terminal aesthetic
+- [x] README.md with icon.svg, badges, live link, Features
+- [x] LICENSE (MIT), SECURITY.md, CLAUDE.md, WHITEPAPER.md, architecture.svg, icon.svg
 
 ## Product
-- [ ] More patterns: 4-4-4-4 labeled, custom pattern builder, session length / rep counter
-- [ ] Sound cue (soft chime on phase change), optional and off by default
-- [ ] Remember last-used preset (localStorage)
-- [ ] Keyboard/space-bar toggle for start/stop
+- [x] Custom pattern builder + rep counter
+- [x] Sound cue (soft chime on phase change), optional and off by default
+- [x] Remember last-used preset and sound setting (localStorage)
+- [x] Keyboard/space-bar toggle for start/stop
 
 ## Native fleet (KMP, like nimble/kmp, homeward/kmp)
 - [ ] kmp/ module: iOS + macOS + Android + Windows/Linux desktop

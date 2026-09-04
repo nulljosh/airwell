@@ -36,9 +36,24 @@
     transition:transform 4s ease-in-out;display:flex;align-items:center;justify-content:center}
   .circle span{font-size:18px;font-weight:500;color:var(--fg);letter-spacing:.02em}
 
+  .reps{color:var(--dim);font-size:13px;margin-bottom:16px}
+
+  .controls{display:flex;gap:10px;justify-content:center;align-items:center}
   .start{background:var(--accent);color:#fff;border:none;padding:12px 32px;border-radius:999px;
     font-size:15px;font-weight:500;cursor:pointer}
   .start:active{opacity:.85}
+  .ghost{background:none;border:1px solid var(--circle);color:var(--dim);padding:10px 18px;
+    border-radius:999px;font-size:14px;cursor:pointer}
+  .ghost[aria-pressed="true"]{color:var(--accent);border-color:var(--accent)}
+
+  .custom{margin-top:28px;color:var(--dim);font-size:13px}
+  .custom summary{cursor:pointer}
+  .custom-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+  .custom-row label{display:flex;flex-direction:column;gap:4px;font-size:12px}
+  .custom-row input{width:56px;padding:6px;border-radius:6px;border:1px solid var(--circle);
+    background:none;color:var(--fg);font-size:13px}
+  .custom-row button{align-self:flex-end;background:var(--accent);color:#fff;border:none;
+    padding:7px 16px;border-radius:6px;font-size:13px;cursor:pointer}
 
   footer{color:var(--dim);font-size:13px;padding:24px;text-align:center}
 </style>
@@ -66,7 +81,23 @@
     <div class="circle" id="circle"><span id="label">Breathe</span></div>
   </div>
 
-  <button class="start" id="toggle">Start</button>
+  <div class="reps" id="reps">Rep <span id="repCount">0</span></div>
+
+  <div class="controls">
+    <button class="start" id="toggle">Start</button>
+    <button class="ghost" id="soundToggle" aria-pressed="false">Sound off</button>
+  </div>
+
+  <details class="custom">
+    <summary>Custom pattern</summary>
+    <div class="custom-row">
+      <label>In <input type="number" id="cIn" min="0" max="30" value="4"></label>
+      <label>Hold <input type="number" id="cHold1" min="0" max="30" value="4"></label>
+      <label>Out <input type="number" id="cOut" min="0" max="30" value="4"></label>
+      <label>Hold <input type="number" id="cHold2" min="0" max="30" value="4"></label>
+      <button id="applyCustom">Use</button>
+    </div>
+  </details>
 </main>
 
 <footer>breathe.heyitsmejosh.com</footer>
@@ -75,17 +106,48 @@
   const circle = document.getElementById('circle');
   const label = document.getElementById('label');
   const toggleBtn = document.getElementById('toggle');
+  const soundBtn = document.getElementById('soundToggle');
+  const repCount = document.getElementById('repCount');
   const presetButtons = document.querySelectorAll('#presets button');
 
   let pattern = [4,4,4,4]; // inhale, hold, exhale, hold (seconds)
   let running = false;
   let timer = null;
   let phaseIdx = 0;
+  let reps = 0;
+  let soundOn = false;
+  let audioCtx = null;
   const phaseNames = ['Inhale','Hold','Exhale','Hold'];
   const phaseScale = [1.4, 1.4, 0.8, 0.8];
 
-  function setPreset(str){
+  function chime(){
+    if (!soundOn) return;
+    try {
+      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.frequency.value = 440;
+      gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.4);
+      osc.connect(gain).connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.4);
+    } catch(e) {}
+  }
+
+  soundBtn.addEventListener('click', ()=>{
+    soundOn = !soundOn;
+    soundBtn.setAttribute('aria-pressed', soundOn);
+    soundBtn.textContent = soundOn ? 'Sound on' : 'Sound off';
+    try { localStorage.setItem('breathe-sound', soundOn ? '1' : '0'); } catch(e) {}
+  });
+  try { soundOn = localStorage.getItem('breathe-sound') === '1'; } catch(e) {}
+  soundBtn.setAttribute('aria-pressed', soundOn);
+  soundBtn.textContent = soundOn ? 'Sound on' : 'Sound off';
+
+  function setPreset(str, save){
     pattern = str.split(',').map(Number);
+    if (save !== false) { try { localStorage.setItem('breathe-preset', str); } catch(e) {} }
     if (running) runPhase(0);
   }
 
@@ -97,26 +159,57 @@
     });
   });
 
+  document.getElementById('applyCustom').addEventListener('click', ()=>{
+    const vals = ['cIn','cHold1','cOut','cHold2'].map(id=>Number(document.getElementById(id).value)||0);
+    presetButtons.forEach(b=>b.classList.remove('active'));
+    setPreset(vals.join(','));
+  });
+
+  // restore last-used preset
+  try {
+    const saved = localStorage.getItem('breathe-preset');
+    if (saved){
+      pattern = saved.split(',').map(Number);
+      const match = [...presetButtons].find(b=>b.dataset.pattern === saved);
+      if (match){ presetButtons.forEach(b=>b.classList.remove('active')); match.classList.add('active'); }
+    }
+  } catch(e) {}
+
   function runPhase(i){
+    if (i % 4 === 0 && i !== 0) { reps++; repCount.textContent = reps; }
     phaseIdx = i % 4;
     const dur = pattern[phaseIdx];
     if (dur === 0){ runPhase(phaseIdx+1); return; }
     label.textContent = phaseNames[phaseIdx];
+    chime();
     circle.style.transitionDuration = dur + 's';
     circle.style.transform = `translate(-50%,-50%) scale(${phaseScale[phaseIdx]})`;
-    timer = setTimeout(()=>runPhase(phaseIdx+1), dur*1000);
+    timer = setTimeout(()=>runPhase(i+1), dur*1000);
   }
 
-  toggleBtn.addEventListener('click', ()=>{
-    running = !running;
-    toggleBtn.textContent = running ? 'Stop' : 'Start';
-    if (running){
-      runPhase(0);
-    } else {
-      clearTimeout(timer);
-      circle.style.transitionDuration = '1s';
-      circle.style.transform = 'translate(-50%,-50%) scale(1)';
-      label.textContent = 'Breathe';
+  function start(){
+    if (running) return;
+    running = true;
+    toggleBtn.textContent = 'Stop';
+    reps = 0; repCount.textContent = 0;
+    runPhase(0);
+  }
+  function stop(){
+    if (!running) return;
+    running = false;
+    toggleBtn.textContent = 'Start';
+    clearTimeout(timer);
+    circle.style.transitionDuration = '1s';
+    circle.style.transform = 'translate(-50%,-50%) scale(1)';
+    label.textContent = 'Breathe';
+  }
+
+  toggleBtn.addEventListener('click', ()=> running ? stop() : start());
+
+  document.addEventListener('keydown', (e)=>{
+    if (e.code === 'Space' && e.target === document.body){
+      e.preventDefault();
+      running ? stop() : start();
     }
   });
 </script>
