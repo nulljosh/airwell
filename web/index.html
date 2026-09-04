@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Breathe</title>
+<style>
+  :root{
+    --bg:#0b1420; --bg2:#0e1a29; --fg:#eef3f8; --dim:#8fa2b8;
+    --accent:#5b8def; --circle:#1a2c44; --ring: rgba(91,141,239,.35);
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f7fb; --bg2:#eaf0f8; --fg:#16202c; --dim:#5c6b7d; --accent:#3f6fd8; --circle:#dbe6f7; --ring: rgba(63,111,216,.25); }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--fg);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",Helvetica,Arial,sans-serif;
+    min-height:100vh;display:flex;flex-direction:column;align-items:center}
+  header{width:100%;max-width:960px;padding:28px 24px 0;display:flex;justify-content:space-between;align-items:center}
+  .brand{font-weight:600;letter-spacing:.02em;font-size:17px}
+  nav a{color:var(--dim);text-decoration:none;font-size:14px;margin-left:20px}
+
+  main{width:100%;max-width:680px;padding:40px 24px 80px;text-align:center}
+  h1{font-size:clamp(28px,5vw,42px);font-weight:600;margin:8px 0 6px;letter-spacing:-.01em}
+  p.sub{color:var(--dim);font-size:16px;margin:0 0 40px}
+
+  .presets{display:flex;gap:8px;justify-content:center;margin-bottom:36px;flex-wrap:wrap}
+  .presets button{background:none;border:1px solid var(--circle);color:var(--dim);
+    padding:8px 16px;border-radius:999px;font-size:14px;cursor:pointer;transition:.15s}
+  .presets button.active{background:var(--accent);border-color:var(--accent);color:#fff}
+
+  .stage{position:relative;width:min(70vw,320px);height:min(70vw,320px);margin:0 auto 32px}
+  .ring{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,var(--ring),transparent 70%)}
+  .circle{position:absolute;left:50%;top:50%;width:40%;height:40%;border-radius:50%;
+    background:var(--circle);transform:translate(-50%,-50%) scale(1);
+    transition:transform 4s ease-in-out;display:flex;align-items:center;justify-content:center}
+  .circle span{font-size:18px;font-weight:500;color:var(--fg);letter-spacing:.02em}
+
+  .start{background:var(--accent);color:#fff;border:none;padding:12px 32px;border-radius:999px;
+    font-size:15px;font-weight:500;cursor:pointer}
+  .start:active{opacity:.85}
+
+  footer{color:var(--dim);font-size:13px;padding:24px;text-align:center}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Breathe</div>
+  <nav><a href="#tool">Try it</a></nav>
+</header>
+
+<main>
+  <h1>A quiet minute for your breath</h1>
+  <p class="sub">Guided breathing patterns. No account, no download, just breathe.</p>
+
+  <div class="presets" id="presets">
+    <button data-pattern="4,4,4,4" class="active">Box</button>
+    <button data-pattern="4,7,8,0">4-7-8</button>
+    <button data-pattern="4,0,6,0">Relax</button>
+    <button data-pattern="5,0,5,0">Coherent</button>
+  </div>
+
+  <div class="stage" id="tool">
+    <div class="ring"></div>
+    <div class="circle" id="circle"><span id="label">Breathe</span></div>
+  </div>
+
+  <button class="start" id="toggle">Start</button>
+</main>
+
+<footer>breathe.heyitsmejosh.com</footer>
+
+<script>
+  const circle = document.getElementById('circle');
+  const label = document.getElementById('label');
+  const toggleBtn = document.getElementById('toggle');
+  const presetButtons = document.querySelectorAll('#presets button');
+
+  let pattern = [4,4,4,4]; // inhale, hold, exhale, hold (seconds)
+  let running = false;
+  let timer = null;
+  let phaseIdx = 0;
+  const phaseNames = ['Inhale','Hold','Exhale','Hold'];
+  const phaseScale = [1.4, 1.4, 0.8, 0.8];
+
+  function setPreset(str){
+    pattern = str.split(',').map(Number);
+    if (running) runPhase(0);
+  }
+
+  presetButtons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      presetButtons.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      setPreset(btn.dataset.pattern);
+    });
+  });
+
+  function runPhase(i){
+    phaseIdx = i % 4;
+    const dur = pattern[phaseIdx];
+    if (dur === 0){ runPhase(phaseIdx+1); return; }
+    label.textContent = phaseNames[phaseIdx];
+    circle.style.transitionDuration = dur + 's';
+    circle.style.transform = `translate(-50%,-50%) scale(${phaseScale[phaseIdx]})`;
+    timer = setTimeout(()=>runPhase(phaseIdx+1), dur*1000);
+  }
+
+  toggleBtn.addEventListener('click', ()=>{
+    running = !running;
+    toggleBtn.textContent = running ? 'Stop' : 'Start';
+    if (running){
+      runPhase(0);
+    } else {
+      clearTimeout(timer);
+      circle.style.transitionDuration = '1s';
+      circle.style.transform = 'translate(-50%,-50%) scale(1)';
+      label.textContent = 'Breathe';
+    }
+  });
+</script>
+
+</body>
+</html>
