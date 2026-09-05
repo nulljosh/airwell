@@ -10,3 +10,4 @@
 
 ## Infra
 - [ ] /api + /mcp if a backend feature ever needs one (none does yet — skip until it does)
+- [ ] native (kmp) port — sibling apps have one, this doesn't (project-sync 2026-09-05)
