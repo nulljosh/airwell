@@ -10,6 +10,12 @@ Four guided breathing patterns, a circle that expands and contracts on your beha
 
 **[breathe.heyitsmejosh.com →](https://breathe.heyitsmejosh.com)**
 
+## Screenshots
+
+<p>
+<img src="screenshots/breathe-1.jpg" alt="Breathe">
+</p>
+
 ## Features
 
 - **Four patterns.** Box (4-4-4-4), 4-7-8, Relax, Coherent. Pick one, the circle does the counting.
