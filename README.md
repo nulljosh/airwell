@@ -35,3 +35,7 @@ npx wrangler dev
 ```bash
 npx wrangler deploy
 ```
+
+## Architecture
+
+<img src="architecture.svg" width="600">
