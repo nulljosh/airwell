@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>document.documentElement.classList.add('js');</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Breathe</title>
@@ -57,6 +58,11 @@
 
   footer{color:var(--dim);font-size:13px;padding:24px;text-align:center}
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+  html.js .reveal{opacity:0;transform:translateY(20px)}
+  html.js .reveal.in-view{opacity:1;transform:translateY(0);transition:opacity .6s ease-out,transform .6s ease-out}
+  @media (prefers-reduced-motion: reduce){ html.js .reveal{opacity:1;transform:none} }
+  @media (prefers-reduced-motion: no-preference){ .ring{will-change:transform} }
 </style>
 <link rel="stylesheet" href="devices.css">
 <script>
@@ -96,7 +102,7 @@ function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidt
 </script>
 
 
-  <div class="presets" id="presets">
+  <div class="presets reveal" id="presets">
     <button data-pattern="4,4,4,4" class="active">Box</button>
     <button data-pattern="4,7,8,0">4-7-8</button>
     <button data-pattern="4,0,6,0">Relax</button>
@@ -115,7 +121,7 @@ function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidt
     <button class="ghost" id="soundToggle" aria-pressed="false">Sound off</button>
   </div>
 
-  <details class="custom">
+  <details class="custom reveal">
     <summary>Custom pattern</summary>
     <div class="custom-row">
       <label>In <input type="number" id="cIn" min="0" max="30" value="4"></label>
@@ -127,7 +133,7 @@ function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidt
   </details>
 </main>
 
-<footer>breathe.heyitsmejosh.com</footer>
+<footer class="reveal">breathe.heyitsmejosh.com</footer>
 
 <script>
   const circle = document.getElementById('circle');
@@ -243,6 +249,25 @@ function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidt
       running ? stop() : start();
     }
   });
+
+  // Scroll-triggered reveal for sections below the fold
+  (function () {
+    const els = document.querySelectorAll('.reveal');
+    if (!els.length) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    els.forEach((el) => io.observe(el));
+  })();
+
+  // Subtle parallax on the ambient ring behind the breathing circle
+  (function () {
+    const ring = document.querySelector('.ring');
+    if (!ring || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let ticking = false;
+    function apply() { ring.style.transform = 'translateY(' + (window.scrollY * 0.06) + 'px)'; ticking = false; }
+    window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(apply); ticking = true; } }, { passive: true });
+  })();
 </script>
 
 </body>
