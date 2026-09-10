@@ -1,2 +1,4 @@
 .DS_Store
 ios/*.xcodeproj
+.asc/artifacts/
+.asc/signing/

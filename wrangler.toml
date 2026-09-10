@@ -2,7 +2,7 @@ name = "breathe"
 compatibility_date = "2025-07-01"
 
 workers_dev = false
-routes = [{ pattern = "breathe.heyitsmejosh.com", custom_domain = true }]
+routes = [{ pattern = "windgate.heyitsmejosh.com", custom_domain = true }]
 
 [assets]
 directory = "web"

@@ -1,20 +1,18 @@
-# Breathe roadmap
+# Windgate roadmap
 
 ## Native fleet
-- [x] ios/: SwiftUI + WKWebView wrapper (iOS + macOS), like lucarne — wraps breathe.heyitsmejosh.com, no reimplementation
+- [x] ios/: SwiftUI + WKWebView wrapper (iOS + macOS), like lucarne — wraps windgate.heyitsmejosh.com/?embed, no reimplementation
 - [ ] kmp/ module for Android + Windows/Linux desktop if that coverage matters later
 
 ## App Store
 - [x] Bundle ID registered: com.nulljosh.breathe (SK644396X9)
-- [x] ASC app record created 2026-09-10: **Windgate**, id 6810806058 ("Breathe", "Breathr", "Exhalo", "Respiro", "Haven", "Glade", "Drift", "Stilla" all taken). On-device display name matches (CFBundleDisplayName); repo/domain stay "breathe" (same split as charwork/Wiretext).
-- [ ] Signing via asc-signing-setup
-- [ ] Archive/upload via asc-xcode-build
-- [ ] Screenshots via asc-shots-pipeline
-- [ ] Submit via asc-release-flow / asc-submission-health
+- [x] ASC app record created 2026-09-10: **Windgate**, id 6810806058 ("Breathe", "Breathr", "Exhalo", "Respiro", "Haven", "Glade", "Drift", "Stilla" all taken)
+- [x] Full rename to match 2026-09-10: repo nulljosh/windgate, domain windgate.heyitsmejosh.com, on-page brand
+- [x] Signing certs/profiles fetched, both platforms archived + uploaded (build VALID)
+- [x] Metadata, pricing (free, all territories), availability, App Privacy (no data collected) done for iOS + macOS
+- [ ] Screenshots: iPhone done, iPad/Watch/Mac still needed
+- [ ] Submit for review
 
 ## Infra
 - [ ] /api + /mcp if a backend feature ever needs one (none does yet — skip until it does)
-
-## Infra
-- [ ] /api + /mcp if a backend feature ever needs one (none does yet — skip until it does)
-- [ ] native (kmp) port — sibling apps have one, this doesn't (project-sync 2026-09-05)
+- [ ] native (kmp) port for Android + desktop — sibling apps have one, this doesn't (project-sync 2026-09-05)

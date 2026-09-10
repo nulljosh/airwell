@@ -1,19 +1,19 @@
 <img src="icon.svg" width="80" style="border-radius:18px">
 
-# Breathe
+# Windgate
 
-![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fbreathe-black?logo=github)](https://github.com/nulljosh/breathe)
+![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fwindgate-black?logo=github)](https://github.com/nulljosh/windgate)
 
 A quiet minute for your breath.
 
 Four guided breathing patterns, a circle that expands and contracts on your behalf, and nothing else. No account, no download, no timer running out on you.
 
-**[breathe.heyitsmejosh.com →](https://breathe.heyitsmejosh.com)**
+**[windgate.heyitsmejosh.com →](https://windgate.heyitsmejosh.com)**
 
 ## Screenshots
 
 <p>
-<img src="screenshots/breathe-1.jpg" alt="Breathe">
+<img src="screenshots/breathe-1.jpg" alt="Windgate">
 </p>
 
 ## Features
@@ -27,8 +27,7 @@ Four guided breathing patterns, a circle that expands and contracts on your beha
 | | |
 |---|---|
 | Web | This repo, deployed to Cloudflare Workers |
-
-Native (iOS, macOS, Android, desktop) is on the [roadmap](roadmap.md), not built yet.
+| iOS, macOS | `ios/`, xcodegen, WKWebView wrapper |
 
 ## Running locally
 

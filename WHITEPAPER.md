@@ -1,9 +1,9 @@
-# Breathe Technical Whitepaper
+# Windgate Technical Whitepaper
 
 **v1.0.0** | September 2026
 
 A guided breathing tool. Pick a pattern, watch a circle expand and contract,
-breathe with it. Live at [breathe.heyitsmejosh.com](https://breathe.heyitsmejosh.com).
+breathe with it. Live at [windgate.heyitsmejosh.com](https://windgate.heyitsmejosh.com).
 
 ## The mechanic
 

@@ -11,7 +11,7 @@ struct BreatheApp: App {
     }
 }
 
-let breatheURL = URL(string: "https://breathe.heyitsmejosh.com")!
+let breatheURL = URL(string: "https://windgate.heyitsmejosh.com/?embed")!
 
 @MainActor
 final class LoadState: NSObject, ObservableObject, WKNavigationDelegate {
