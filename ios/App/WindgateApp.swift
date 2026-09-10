@@ -2,7 +2,7 @@ import SwiftUI
 import WebKit
 
 @main
-struct BreatheApp: App {
+struct WindgateApp: App {
     var body: some Scene {
         WindowGroup { ContentView() }
         #if os(macOS)

@@ -9,7 +9,7 @@ Guided breathing, `windgate.heyitsmejosh.com`. One static page: four presets (Bo
 
 ## Structure
 - `web/index.html`: landing page + breathing tool, single file
-- `ios/App/BreatheApp.swift`: everything. WKWebView loading `windgate.heyitsmejosh.com/?embed` (embed mode hides the landing chrome — loading the bare page recurses the landing's own device-demo into itself). One xcodegen target, iOS + macOS.
+- `ios/App/WindgateApp.swift`: everything. WKWebView loading `windgate.heyitsmejosh.com/?embed` (embed mode hides the landing chrome — loading the bare page recurses the landing's own device-demo into itself). One xcodegen target, iOS + macOS.
 
 ## Deploy
 ```bash
@@ -19,9 +19,9 @@ npx wrangler deploy
 ## Build (native)
 ```bash
 cd ios && xcodegen generate
-xcodebuild build -project Breathe.xcodeproj -scheme Breathe -destination 'platform=macOS'
-xcodebuild build -project Breathe.xcodeproj -scheme Breathe -destination 'generic/platform=iOS Simulator'
+xcodebuild build -project Windgate.xcodeproj -scheme Windgate -destination 'platform=macOS'
+xcodebuild build -project Windgate.xcodeproj -scheme Windgate -destination 'generic/platform=iOS Simulator'
 ```
 
 ## App Store
-Bundle com.nulljosh.breathe (SK644396X9). ASC record 6810806058, listed as **Windgate** — "Breathe" and every other single-word candidate were taken. Repo, domain, and all product copy renamed to Windgate to match (2026-09-10); only the internal repo folder name and bundle ID still say "breathe".
+Bundle com.nulljosh.breathe (SK644396X9). ASC record 6810806058, listed as **Windgate** — "Breathe" and every other single-word candidate were taken. Repo, domain, on-page copy, and the Xcode target itself are all renamed to Windgate (2026-09-10); only the bundle ID still says "breathe" (renaming it would mean a new ASC bundle ID + app record — not worth it).
