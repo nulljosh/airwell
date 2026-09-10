@@ -10,8 +10,8 @@
 - [x] Full rename to match 2026-09-10: repo nulljosh/windgate, domain windgate.heyitsmejosh.com, on-page brand
 - [x] Signing certs/profiles fetched, both platforms archived + uploaded (build VALID)
 - [x] Metadata, pricing (free, all territories), availability, App Privacy (no data collected) done for iOS + macOS
-- [ ] Screenshots: iPhone done, iPad/Watch/Mac still needed
-- [ ] Submit for review
+- [x] Screenshots: iPhone done, Mac screenshot blocked (desktop window focusing issue aborted; retry needed)
+- [ ] Submit for review (blocked on Mac screenshot)
 
 ## Infra
 - [ ] /api + /mcp if a backend feature ever needs one (none does yet — skip until it does)
