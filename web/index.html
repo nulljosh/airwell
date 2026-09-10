@@ -202,6 +202,10 @@ function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidt
     }
   } catch(e) {}
 
+  // Recursive setTimeout state machine: i counts forever (not mod 4) so a
+  // full cycle back to phase 0 is detectable to bump the rep counter, and a
+  // 0-second phase (custom pattern) recurses straight through without
+  // scheduling a timer or playing a chime for it.
   function runPhase(i){
     if (i % 4 === 0 && i !== 0) { reps++; repCount.textContent = reps; }
     phaseIdx = i % 4;
