@@ -4,11 +4,13 @@
 - [x] ios/: SwiftUI + WKWebView wrapper (iOS + macOS), like lucarne — wraps breathe.heyitsmejosh.com, no reimplementation
 - [ ] kmp/ module for Android + Windows/Linux desktop if that coverage matters later
 
-## App Store — BLOCKED on Chrome extension
+## App Store
 - [x] Bundle ID registered: com.nulljosh.breathe (SK644396X9)
-- [ ] ASC app record — needs `asc-app-create-ui` (Chrome extension not connected 2026-09-10, retry when it is). Name "Breathe" had no exact match in public search; try it first, fallback: Breathr, Breathe App, Coherent Breathing
+- [x] ASC app record created 2026-09-10: **Windgate**, id 6810806058 ("Breathe", "Breathr", "Exhalo", "Respiro", "Haven", "Glade", "Drift", "Stilla" all taken). On-device display name matches (CFBundleDisplayName); repo/domain stay "breathe" (same split as charwork/Wiretext).
+- [ ] Signing via asc-signing-setup
+- [ ] Archive/upload via asc-xcode-build
 - [ ] Screenshots via asc-shots-pipeline
-- [ ] Signing via asc-signing-setup, archive/upload via asc-xcode-build, submit via asc-release-flow
+- [ ] Submit via asc-release-flow / asc-submission-health
 
 ## Infra
 - [ ] /api + /mcp if a backend feature ever needs one (none does yet — skip until it does)

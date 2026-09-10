@@ -24,4 +24,4 @@ xcodebuild build -project Breathe.xcodeproj -scheme Breathe -destination 'generi
 ```
 
 ## App Store
-Bundle com.nulljosh.breathe (SK644396X9). No ASC app record yet — creation needs the web UI (asc-app-create-ui), blocked on Chrome extension connectivity as of 2026-09-10.
+Bundle com.nulljosh.breathe (SK644396X9). ASC record 6810806058, listed as **Windgate** (App Store listing name only — "Breathe" and single-word variants were taken; repo/domain stay "breathe", same split as charwork/Wiretext). On-device display name matches via CFBundleDisplayName.
