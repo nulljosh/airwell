@@ -4,8 +4,8 @@
   text { font-family: -apple-system, Helvetica, Arial, sans-serif; fill: var(--ink); }
   line, polyline { stroke: var(--ink); fill: none; }
   .g { stroke-dasharray: 1 4; }
-</style><text x="38" y="11" font-size="10">Lines of real code</text><line x1="38" y1="26" x2="458" y2="26" class="g"/><text x="34" y="29" font-size="9" text-anchor="end">649</text><line x1="38" y1="97" x2="458" y2="97" class="g"/><text x="34" y="100" font-size="9" text-anchor="end">324</text>
+</style><text x="38" y="11" font-size="10">Lines of real code</text><line x1="38" y1="26" x2="458" y2="26" class="g"/><text x="34" y="29" font-size="9" text-anchor="end">657</text><line x1="38" y1="97" x2="458" y2="97" class="g"/><text x="34" y="100" font-size="9" text-anchor="end">328</text>
 <line x1="38" y1="26" x2="38" y2="166"/><line x1="38" y1="166" x2="458" y2="166"/>
-<polyline points="38,140 64,119 90,119 116,115 143,85 169,79 195,78 221,73 248,59 274,57 300,57 326,57 353,45 379,45 405,45 431,28 458,26" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="38" y="182" font-size="10">Sep 3</text><text x="458" y="182" font-size="10" text-anchor="end">Sep 11</text>
-<text x="38" y="196" font-size="10" font-weight="600">649 lines &#183; 22 commits since Sep 3 2026</text></svg>
+<polyline points="38,140 62,120 87,120 112,116 136,86 161,80 186,80 210,74 235,60 260,59 285,59 309,59 334,47 359,47 383,47 408,30 433,28 458,26" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="38" y="182" font-size="10">Sep 3</text><text x="458" y="182" font-size="10" text-anchor="end">Sep 20</text>
+<text x="38" y="196" font-size="10" font-weight="600">657 lines &#183; 100% documented &#183; 27 commits since Sep 3 2026</text></svg>
