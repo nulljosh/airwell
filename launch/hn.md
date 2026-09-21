@@ -1,3 +1,5 @@
+Skip: no technical hook
+
 Title (<=80 chars):
 Show HN: Windgate – a guided breathing app where the circle is the timer
 
