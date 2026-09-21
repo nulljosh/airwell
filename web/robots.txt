@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://windgate.heyitsmejosh.com/sitemap.xml
