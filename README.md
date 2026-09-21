@@ -10,6 +10,8 @@ Four guided breathing patterns, a circle that expands and contracts on your beha
 
 **[windgate.heyitsmejosh.com →](https://windgate.heyitsmejosh.com)**
 
+<img src="progress.svg" width="460">
+
 ## Screenshots
 
 <p>
