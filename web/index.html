@@ -221,6 +221,7 @@ function fit(){i.style.transform='scale('+(i.parentNode.clientWidth/i.offsetWidt
   // 0-second phase (custom pattern) recurses straight through without
   // scheduling a timer or playing a chime for it.
   function runPhase(i){
+    clearTimeout(timer);
     if (i % 4 === 0 && i !== 0) { reps++; repCount.textContent = reps; }
     phaseIdx = i % 4;
     const dur = pattern[phaseIdx];

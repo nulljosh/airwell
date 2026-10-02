@@ -1,5 +1,8 @@
 # Windgate roadmap
 
+## Bugs
+- [x] Cancel the previous phase timer when changing a running preset.
+
 ## Native fleet
 - [ ] kmp/ module for Android + Windows/Linux desktop if that coverage matters later
 
