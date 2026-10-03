@@ -1,65 +1,46 @@
 import SwiftUI
-import WebKit
 
 @main
 struct WindgateApp: App {
+    @StateObject private var library = Library()
+    @StateObject private var runner = Runner()
+
     var body: some Scene {
-        WindowGroup { ContentView() }
+        WindowGroup {
+            RootView()
+                .environmentObject(library)
+                .environmentObject(runner)
+                .preferredColorScheme(.dark)
+        }
         #if os(macOS)
         .defaultSize(width: 480, height: 760)
         #endif
     }
 }
 
-let breatheURL = URL(string: "https://windgate.heyitsmejosh.com/?embed")!
-
-@MainActor
-final class LoadState: NSObject, ObservableObject, WKNavigationDelegate {
-    @Published var loading = true
-    @Published var failed = false
-    func webView(_ w: WKWebView, didFinish n: WKNavigation!) { loading = false; failed = false }
-    func webView(_ w: WKWebView, didFail n: WKNavigation!, withError e: Error) { loading = false; failed = true }
-    func webView(_ w: WKWebView, didFailProvisionalNavigation n: WKNavigation!, withError e: Error) { loading = false; failed = true }
+enum Theme {
+    static let background = Color(red: 0.043, green: 0.078, blue: 0.125)
+    static let breath = Color(red: 0.78, green: 0.88, blue: 0.95)
+    static let accent = Color(red: 0.71, green: 0.31, blue: 0.17)
 }
 
-#if os(macOS)
-struct WebView: NSViewRepresentable {
-    let delegate: LoadState
-    func makeNSView(context: Context) -> WKWebView {
-        let web = WKWebView()
-        web.navigationDelegate = delegate
-        web.load(URLRequest(url: breatheURL))
-        return web
-    }
-    func updateNSView(_ v: WKWebView, context: Context) {}
-}
-#else
-struct WebView: UIViewRepresentable {
-    let delegate: LoadState
-    func makeUIView(context: Context) -> WKWebView {
-        let web = WKWebView()
-        web.navigationDelegate = delegate
-        web.load(URLRequest(url: breatheURL))
-        return web
-    }
-    func updateUIView(_ v: WKWebView, context: Context) {}
-}
-#endif
+struct RootView: View {
+    @EnvironmentObject var library: Library
+    @EnvironmentObject var runner: Runner
 
-struct ContentView: View {
-    @StateObject private var state = LoadState()
     var body: some View {
-        ZStack {
-            Color(red: 0.043, green: 0.078, blue: 0.125).ignoresSafeArea()
-            WebView(delegate: state).ignoresSafeArea()
-            if state.loading {
-                ProgressView().tint(.white)
-            }
-            if state.failed {
-                VStack(spacing: 12) {
-                    Text("Couldn't connect").foregroundStyle(.white)
-                    Button("Retry") { state.loading = true; state.failed = false }
-                }
+        TabView {
+            Tab("Breathe", systemImage: "wind") { BreatheView() }
+            Tab("Patterns", systemImage: "waveform.path") { PatternsView() }
+            Tab("Progress", systemImage: "flame") { ProgressTab() }
+            Tab("Settings", systemImage: "gearshape") { SettingsView() }
+        }
+        .tint(Theme.breath)
+        .onAppear {
+            runner.onPhase = { [library] phase in if library.haptics { Haptics.pulse(phase) } }
+            runner.onEnd = { [library] name, seconds, done in
+                library.record(pattern: name, seconds: seconds)
+                if done && library.haptics { Haptics.done() }
             }
         }
     }
