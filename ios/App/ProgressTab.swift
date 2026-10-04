@@ -46,5 +46,5 @@ struct ProgressTab: View {
         .accessibilityElement(children: .combine)
     }
 
-    private func duration(_ s: Int) -> String { s < 60 ? "\(s)s" : "\(s / 60)m \(s % 60)s" }
+    private func duration(_ s: Int) -> String { s < 60 ? "\(s)s" : s % 60 == 0 ? "\(s / 60) min" : "\(s / 60)m \(s % 60)s" }
 }
