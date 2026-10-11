@@ -25,6 +25,6 @@ Pricing line:
 $0.99 upfront on iOS, free on the web.
 
 Links:
-Web: https://windgate.heyitsmejosh.com
+Web: https://windgate.jaybulb.com
 App Store: https://apps.apple.com/app/id6810806058
 GitHub: https://github.com/nulljosh/windgate
