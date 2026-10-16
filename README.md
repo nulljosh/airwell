@@ -8,7 +8,7 @@ A quiet minute for your breath.
 
 Four guided breathing patterns, a circle that expands and contracts on your behalf, and nothing else. No account, no download, no timer running out on you.
 
-**[windgate.heyitsmejosh.com →](https://windgate.heyitsmejosh.com)**
+**[windgate.jaybulb.com →](https://windgate.jaybulb.com)**
 
 <img src="progress.svg" width="460">
 
