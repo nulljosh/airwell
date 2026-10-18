@@ -1,4 +1,4 @@
-# Windgate
+# Airwell
 v1.0 (native rewrite, resubmitted 2026-10-03; ASC version string stays 1.0, bump the build number)
 
 Guided breathing, `windgate.heyitsmejosh.com`. One static page: four presets (Box, 4-7-8, Relax, Coherent) driving a CSS-transitioned circle. No backend, no build step.
@@ -20,9 +20,9 @@ npx wrangler deploy
 ## Build (native)
 ```bash
 cd ios && xcodegen generate
-xcodebuild build -project Windgate.xcodeproj -scheme Windgate -destination 'platform=macOS'
-xcodebuild build -project Windgate.xcodeproj -scheme Windgate -destination 'generic/platform=iOS Simulator'
+xcodebuild build -project Airwell.xcodeproj -scheme Airwell -destination 'platform=macOS'
+xcodebuild build -project Airwell.xcodeproj -scheme Airwell -destination 'generic/platform=iOS Simulator'
 ```
 
 ## App Store
-Bundle com.nulljosh.breathe (SK644396X9). ASC record 6810806058, listed as **Windgate** — "Breathe" and every other single-word candidate were taken. Repo, domain, on-page copy, and the Xcode target itself are all renamed to Windgate (2026-09-10); only the bundle ID still says "breathe" (renaming it would mean a new ASC bundle ID + app record — not worth it).
+Bundle com.nulljosh.breathe (SK644396X9). ASC record 6810806058, listed as **Airwell** — "Breathe" and every other single-word candidate were taken. Repo, domain, on-page copy, and the Xcode target itself are all renamed to Airwell (2026-09-10); only the bundle ID still says "breathe" (renaming it would mean a new ASC bundle ID + app record — not worth it).
