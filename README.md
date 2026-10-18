@@ -2,13 +2,13 @@
 
 # Airwell
 
-![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fwindgate-black?logo=github)](https://github.com/nulljosh/windgate)
+![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fwindgate-black?logo=github)](https://github.com/nulljosh/airwell)
 
 A quiet minute for your breath.
 
 Four guided breathing patterns, a circle that expands and contracts on your behalf, and nothing else. No account, no download, no timer running out on you.
 
-**[windgate.jaybulb.com →](https://windgate.jaybulb.com)**
+**[airwell.jaybulb.com →](https://airwell.jaybulb.com)**
 
 <img src="progress.svg" width="460">
 

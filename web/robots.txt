@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://windgate.jaybulb.com/sitemap.xml
+Sitemap: https://airwell.jaybulb.com/sitemap.xml

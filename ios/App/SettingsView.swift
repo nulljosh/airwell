@@ -20,7 +20,7 @@ struct SettingsView: View {
                     if library.reminderDenied { Text("Notifications are off for Airwell. Turn them on in system Settings.") }
                 }
                 Section {
-                    Link("Support", destination: URL(string: "https://windgate.jaybulb.com")!)
+                    Link("Support", destination: URL(string: "https://airwell.jaybulb.com")!)
                 } footer: {
                     Text("Your patterns and history stay on this device.")
                 }

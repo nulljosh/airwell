@@ -1,7 +1,7 @@
 # Airwell
 v1.0 (native rewrite, resubmitted 2026-10-03; ASC version string stays 1.0, bump the build number)
 
-Guided breathing, `windgate.heyitsmejosh.com`. One static page: four presets (Box, 4-7-8, Relax, Coherent) driving a CSS-transitioned circle. No backend, no build step.
+Guided breathing, `airwell.jaybulb.com`. One static page: four presets (Box, 4-7-8, Relax, Coherent) driving a CSS-transitioned circle. No backend, no build step.
 
 ## Stack
 - `web/index.html`: everything. Inline CSS, inline JS. Phase timings live in the `pattern` array (inhale, hold, exhale, hold in seconds; 0 skips a phase).

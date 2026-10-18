@@ -10,4 +10,4 @@ The habit that never stuck for me was breathing exercises, because every app mad
 
 Airwell is my attempt at removing that friction. One circle expands and contracts to a pattern you pick (Box, 4-7-8, Relax, Coherent), and the circle's motion is the only timer there is. You just watch it and breathe. No account, no streaks to maintain, no notifications, nothing to fail at.
 
-It's free on the web at https://windgate.jaybulb.com. If a breathing habit is something you've tried and dropped, curious whether this format is the kind of thing that would keep you coming back.
+It's free on the web at https://airwell.jaybulb.com. If a breathing habit is something you've tried and dropped, curious whether this format is the kind of thing that would keep you coming back.

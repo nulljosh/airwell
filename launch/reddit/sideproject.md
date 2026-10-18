@@ -12,6 +12,6 @@ So I built Airwell. One circle on the screen, expanding and contracting on a CSS
 
 It's plain HTML, CSS, and a little JavaScript, one page, no framework, no backend, no account. Dark by default, light if your system prefers it.
 
-Live at https://windgate.jaybulb.com, free to use in the browser. There's also a $0.99 App Store version if you want it as its own app.
+Live at https://airwell.jaybulb.com, free to use in the browser. There's also a $0.99 App Store version if you want it as its own app.
 
 Would love feedback on whether the pacing feels right and if the light/dark switch reads correctly for you.

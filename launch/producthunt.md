@@ -25,6 +25,6 @@ Pricing line:
 $0.99 upfront on iOS, free on the web.
 
 Links:
-Web: https://windgate.jaybulb.com
+Web: https://airwell.jaybulb.com
 App Store: https://apps.apple.com/app/id6810806058
-GitHub: https://github.com/nulljosh/windgate
+GitHub: https://github.com/nulljosh/airwell

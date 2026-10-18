@@ -10,4 +10,4 @@ Airwell is a small iOS app, one screen, four breathing patterns (Box, 4-7-8, Rel
 
 It started as a plain web app (HTML, CSS, a little JS, no framework), and I ported it to iOS for people who want it as a standalone app rather than a browser tab. No account, no backend, nothing stored beyond the device.
 
-It's $0.99 upfront on the App Store, the web version stays free at https://windgate.jaybulb.com. Happy to talk through the build if anyone's curious about the CSS-transition-as-timer approach.
+It's $0.99 upfront on the App Store, the web version stays free at https://airwell.jaybulb.com. Happy to talk through the build if anyone's curious about the CSS-transition-as-timer approach.

@@ -4,7 +4,7 @@
 
 Counting breaths in your head is one more thing to think about when the
 point is to stop thinking. A guided breathing tool. Pick a pattern, watch a circle expand and contract,
-breathe with it. Live at [windgate.heyitsmejosh.com](https://windgate.heyitsmejosh.com).
+breathe with it. Live at [airwell.jaybulb.com](https://airwell.jaybulb.com).
 
 ## The mechanic
 

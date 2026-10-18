@@ -1,6 +1,6 @@
 # Architecture
 
-Guided breathing tool. Four presets (Box, 4-7-8, Relax, Coherent) and a customizable pattern drive a CSS-animated circle that expands and contracts to guide your breath. No backend, no accounts, no analytics. Web app deployed to `windgate.heyitsmejosh.com`, with native iOS and macOS wrappers and watchOS support.
+Guided breathing tool. Four presets (Box, 4-7-8, Relax, Coherent) and a customizable pattern drive a CSS-animated circle that expands and contracts to guide your breath. No backend, no accounts, no analytics. Web app deployed to `airwell.jaybulb.com`, with native iOS and macOS wrappers and watchOS support.
 
 ## How it runs
 
