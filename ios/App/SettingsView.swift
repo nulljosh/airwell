@@ -17,7 +17,7 @@ struct SettingsView: View {
                         DatePicker("Time", selection: $library.reminderTime, displayedComponents: .hourAndMinute)
                     }
                 } footer: {
-                    if library.reminderDenied { Text("Notifications are off for Windgate. Turn them on in system Settings.") }
+                    if library.reminderDenied { Text("Notifications are off for Airwell. Turn them on in system Settings.") }
                 }
                 Section {
                     Link("Support", destination: URL(string: "https://windgate.jaybulb.com")!)

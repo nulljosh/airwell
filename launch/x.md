@@ -5,4 +5,4 @@ Post 2:
 The whole trick is one CSS transition. The circle's scale animates over the exact duration of each breathing phase, so the animation itself is the clock. When it ends, the next phase starts. No JS countdown to watch.
 
 Post 3:
-Windgate is free on the web, $0.99 upfront on iOS if you want it off the browser and on your home screen. No account either way. windgate.jaybulb.com
+Airwell is free on the web, $0.99 upfront on iOS if you want it off the browser and on your home screen. No account either way. windgate.jaybulb.com

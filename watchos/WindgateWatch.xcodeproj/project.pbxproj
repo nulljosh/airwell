@@ -8,20 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		2CCCE97E252AC4FA24BBADB4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C441407BE69221EC3D6DAFFC /* ContentView.swift */; };
-		C65FD84E92489E921C6B99A1 /* WindgateWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBB7E6D4C94058B69AC1C6A /* WindgateWatchApp.swift */; };
+		C65FD84E92489E921C6B99A1 /* AirwellWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBB7E6D4C94058B69AC1C6A /* AirwellWatchApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2BBB7E6D4C94058B69AC1C6A /* WindgateWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindgateWatchApp.swift; sourceTree = "<group>"; };
+		2BBB7E6D4C94058B69AC1C6A /* AirwellWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirwellWatchApp.swift; sourceTree = "<group>"; };
 		C441407BE69221EC3D6DAFFC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		DCB948E6C13200C4832083F6 /* WindgateWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WindgateWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCB948E6C13200C4832083F6 /* AirwellWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirwellWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		10FF1E6616F8B6DB4DCA31BB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DCB948E6C13200C4832083F6 /* WindgateWatch.app */,
+				DCB948E6C13200C4832083F6 /* AirwellWatch.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -38,7 +38,7 @@
 			isa = PBXGroup;
 			children = (
 				C441407BE69221EC3D6DAFFC /* ContentView.swift */,
-				2BBB7E6D4C94058B69AC1C6A /* WindgateWatchApp.swift */,
+				2BBB7E6D4C94058B69AC1C6A /* AirwellWatchApp.swift */,
 			);
 			name = watchos;
 			path = .;
@@ -47,9 +47,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6847C8DFADD0DFF50530E408 /* WindgateWatch */ = {
+		6847C8DFADD0DFF50530E408 /* AirwellWatch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AF7C0974256D336155369FC5 /* Build configuration list for PBXNativeTarget "WindgateWatch" */;
+			buildConfigurationList = AF7C0974256D336155369FC5 /* Build configuration list for PBXNativeTarget "AirwellWatch" */;
 			buildPhases = (
 				61F5E871754E6CF54F91BA5E /* Sources */,
 			);
@@ -57,11 +57,11 @@
 			);
 			dependencies = (
 			);
-			name = WindgateWatch;
+			name = AirwellWatch;
 			packageProductDependencies = (
 			);
-			productName = WindgateWatch;
-			productReference = DCB948E6C13200C4832083F6 /* WindgateWatch.app */;
+			productName = AirwellWatch;
+			productReference = DCB948E6C13200C4832083F6 /* AirwellWatch.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -79,7 +79,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A908E989C5B547027A630427 /* Build configuration list for PBXProject "WindgateWatch" */;
+			buildConfigurationList = A908E989C5B547027A630427 /* Build configuration list for PBXProject "AirwellWatch" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -93,7 +93,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6847C8DFADD0DFF50530E408 /* WindgateWatch */,
+				6847C8DFADD0DFF50530E408 /* AirwellWatch */,
 			);
 		};
 /* End PBXProject section */
@@ -104,7 +104,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CCCE97E252AC4FA24BBADB4 /* ContentView.swift in Sources */,
-				C65FD84E92489E921C6B99A1 /* WindgateWatchApp.swift in Sources */,
+				C65FD84E92489E921C6B99A1 /* AirwellWatchApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,7 +119,7 @@
 				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nulljosh.breathe.watchos;
-				PRODUCT_NAME = Windgate;
+				PRODUCT_NAME = Airwell;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -194,7 +194,7 @@
 				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_WKWatchOnly = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nulljosh.breathe.watchos;
-				PRODUCT_NAME = Windgate;
+				PRODUCT_NAME = Airwell;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -271,7 +271,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A908E989C5B547027A630427 /* Build configuration list for PBXProject "WindgateWatch" */ = {
+		A908E989C5B547027A630427 /* Build configuration list for PBXProject "AirwellWatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C8C1FA7BD91A1BACD6463F1B /* Debug */,
@@ -280,7 +280,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		AF7C0974256D336155369FC5 /* Build configuration list for PBXNativeTarget "WindgateWatch" */ = {
+		AF7C0974256D336155369FC5 /* Build configuration list for PBXNativeTarget "AirwellWatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75DB41318CBD7DA2175F896C /* Debug */,

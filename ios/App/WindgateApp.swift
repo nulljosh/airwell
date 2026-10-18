@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct WindgateApp: App {
+struct AirwellApp: App {
     @StateObject private var library = Library()
     @StateObject private var runner = Runner()
 

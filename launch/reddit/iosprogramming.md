@@ -3,10 +3,10 @@ Gate: requires "Show and Tell" flair. Weekly self-promo thread is the safer rout
 Status: public launch.
 
 Title:
-[Show and Tell] Windgate, a guided breathing app where the animation is the timer
+[Show and Tell] Airwell, a guided breathing app where the animation is the timer
 
 Body:
-Windgate is a small iOS app, one screen, four breathing patterns (Box, 4-7-8, Relax, Coherent). Instead of a countdown number, a circle expands and contracts on a timed animation, so the circle's motion is the only timer you ever see.
+Airwell is a small iOS app, one screen, four breathing patterns (Box, 4-7-8, Relax, Coherent). Instead of a countdown number, a circle expands and contracts on a timed animation, so the circle's motion is the only timer you ever see.
 
 It started as a plain web app (HTML, CSS, a little JS, no framework), and I ported it to iOS for people who want it as a standalone app rather than a browser tab. No account, no backend, nothing stored beyond the device.
 

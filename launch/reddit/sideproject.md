@@ -8,7 +8,7 @@ I built a breathing app where the circle itself is the timer, not a number
 Body:
 I kept trying box breathing and 4-7-8 from instructions, and every time, half my attention went to holding the count in my head. The thing I was supposed to stop doing, thinking, was exactly what the counting made me do more of.
 
-So I built Windgate. One circle on the screen, expanding and contracting on a CSS transition timed to whatever phase you're in. The circle's motion is the timer, so there's nothing to read, nothing counting down. Four patterns ship: Box, 4-7-8, Relax, Coherent. Pick one and breathe with it.
+So I built Airwell. One circle on the screen, expanding and contracting on a CSS transition timed to whatever phase you're in. The circle's motion is the timer, so there's nothing to read, nothing counting down. Four patterns ship: Box, 4-7-8, Relax, Coherent. Pick one and breathe with it.
 
 It's plain HTML, CSS, and a little JavaScript, one page, no framework, no backend, no account. Dark by default, light if your system prefers it.
 

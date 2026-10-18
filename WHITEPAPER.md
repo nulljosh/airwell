@@ -1,4 +1,4 @@
-# Windgate Technical Whitepaper
+# Airwell Technical Whitepaper
 
 **v1.0.0** | September 2026
 

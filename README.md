@@ -1,6 +1,6 @@
 <img src="icon.svg" width="80" style="border-radius:18px">
 
-# Windgate
+# Airwell
 
 ![version](https://img.shields.io/badge/version-v1.0.0-blue) ![license](https://img.shields.io/badge/license-MIT-green) [![GitHub](https://img.shields.io/badge/GitHub-nulljosh%2Fwindgate-black?logo=github)](https://github.com/nulljosh/windgate)
 
@@ -15,7 +15,7 @@ Four guided breathing patterns, a circle that expands and contracts on your beha
 ## Screenshots
 
 <p>
-<img src="screenshots/breathe-1.jpg" alt="Windgate">
+<img src="screenshots/breathe-1.jpg" alt="Airwell">
 </p>
 
 ## Features

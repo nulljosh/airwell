@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct WindgateWatchApp: App {
+struct AirwellWatchApp: App {
     var body: some Scene {
         WindowGroup { ContentView() }
     }

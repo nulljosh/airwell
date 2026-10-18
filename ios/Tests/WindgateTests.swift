@@ -1,6 +1,6 @@
 import Testing
 import Foundation
-@testable import Windgate
+@testable import Airwell
 
 @Test func boxCyclesThroughFourPhases() {
     let box = Pattern.presets[0]
