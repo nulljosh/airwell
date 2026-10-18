@@ -15,7 +15,9 @@ Four guided breathing patterns, a circle that expands and contracts on your beha
 ## Screenshots
 
 <p>
-<img src="screenshots/breathe-1.jpg" alt="Airwell">
+<img src="screenshots/airwell-light.png" alt="Airwell, light" width="640">
+<img src="screenshots/airwell-dark.png" alt="Airwell, dark" width="640">
+<img src="screenshots/airwell-phone.png" alt="Airwell on a phone" width="240">
 </p>
 
 ## Features
