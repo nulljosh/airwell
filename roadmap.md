@@ -10,5 +10,4 @@
 - [ ] native (kmp) port for Android + desktop — sibling apps have one, this doesn't (project-sync 2026-09-05)
 
 ## Ingested 2026-10-16
-- [ ] Windgate: investigate App Store Connect issues (iOS 1.0 and macOS 1.0 both flagged).
-- [ ] Windgate: investigate App Store Connect issues (iOS 1.0 and macOS 1.0 both flagged).
+- [ ] Airwell iOS 1.0 is REJECTED (macOS 1.0 is READY_FOR_DISTRIBUTION, live). Rejection reason unread: `asc web review show --app 6810806058` hit Apple sign-in 503 on 2026-10-26 (asc paused until 12:20Z). Needs Joshua to run `asc web auth login --apple-id trommatic@icloud.com`, then read the reason and reply or fix. Earlier 4.3/4.2.6 reply (2026-10-05) said the build is the native SwiftUI rewrite; do not resubmit a web view.
