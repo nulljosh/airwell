@@ -19,6 +19,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="landing.css">
+<link rel="stylesheet" href="hero.css?v=2">
 <script src="landing.js" defer></script>
 </head>
 <body>
@@ -40,7 +41,8 @@
      Katsushika Hokusai, Fine Wind, Clear Morning and The Great Wave off Kanagawa. -->
 <main id="top">
 <section class="hero">
-  <div class="wrap center">
+  <div class="hero-bg" aria-hidden="true" inert><div class="awall" id="awall"></div></div>
+  <div class="wrap center hero-copy">
     <p class="label">Airwell, guided breathing</p>
     <h1 class="hero-h1">A quiet minute for your breath.</h1>
     <p class="lead">Four breathing patterns and a circle to follow. No account, no download, just breathe.</p>
@@ -51,6 +53,9 @@
     <p class="fine">Free on the web. iPhone, iPad and Mac on the App Store.</p>
   </div>
 
+</section>
+
+<section class="try">
   <div class="demo-wrap reveal">
     <div class="stage">
       <div class="art stage-art" style="--img: url(art/monet.png)" aria-hidden="true"></div>
@@ -251,5 +256,6 @@
 
 </script>
 <script src="footer-band.js" defer></script>
+<script src="hero.js?v=2" defer></script>
 </body>
 </html>
