@@ -1,122 +1,137 @@
 <!doctype html>
 <html lang="en">
 <head>
-<script>document.documentElement.classList.add('js');</script>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#1f6fe0">
-<title>Airwell</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<title>Airwell. A quiet minute for your breath.</title>
 <meta name="description" content="Four guided breathing patterns and a circle that expands and contracts on your behalf. No account, no download, no timer running out on you.">
-<meta property="og:title" content="A quiet minute for your breath.">
+<meta property="og:title" content="Airwell. A quiet minute for your breath.">
 <meta property="og:description" content="Four guided breathing patterns and a circle that expands and contracts on your behalf. No account, no download, no timer running out on you.">
 <meta property="og:image" content="https://airwell.jaybulb.com/og.png">
 <meta property="og:url" content="https://airwell.jaybulb.com/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://airwell.jaybulb.com/og.png">
 <link rel="canonical" href="https://airwell.jaybulb.com/">
-<link rel="stylesheet" href="tokens.css">
-<style>
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--text);font:var(--size-body)/24px var(--font);
-    min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased}
-  header{width:100%;max-width:var(--measure);padding:var(--s5) var(--page) 0;display:flex;justify-content:space-between;align-items:center}
-  .brand{font-size:var(--size-body);line-height:24px;font-weight:600}
-  nav a{color:var(--accent);text-decoration:none;font-size:var(--size-subhead);line-height:20px}
-  /* the accent blue is 3.7:1 on black; the nav link takes a lighter blue in dark (buttons keep the accent, white text needs it deep) */
-  @media (prefers-color-scheme: dark){nav a{color:#4c9bff}}
-
-  main{width:100%;max-width:var(--measure);padding:var(--s7) var(--page) var(--s7);text-align:center}
-  h1{font-size:var(--size-large-title);line-height:41px;font-weight:700;letter-spacing:-.022em;margin:0 0 var(--s2)}
-  p.sub{color:var(--text2);font-size:var(--size-body);line-height:24px;margin:0 0 var(--s6)}
-
-  .presets{display:flex;gap:var(--s2);justify-content:center;margin-bottom:var(--s6);flex-wrap:wrap}
-  .presets button{height:var(--control);padding:0 var(--s5);border:0;border-radius:var(--r-pill);
-    background:var(--bg2);color:var(--text);font:inherit;font-size:var(--size-subhead);line-height:20px;cursor:pointer;
-    transition:background .2s ease,color .2s ease}
-  .presets button.active{background:var(--accent);color:#fff}
-
-  @media (max-width:480px){.presets{display:grid;grid-template-columns:repeat(2,1fr);max-width:320px;margin-left:auto;margin-right:auto}.presets button{padding:0}}
-  .stage{position:relative;width:min(70vw,320px);height:min(70vw,320px);margin:0 auto var(--s6)}
-  .ring{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 24%,transparent),transparent 70%)}
-  .circle{position:absolute;left:50%;top:50%;width:40%;height:40%;border-radius:50%;
-    background:var(--bg2);box-shadow:inset 0 0 0 1px var(--border);transform:translate(-50%,-50%) scale(1);
-    transition:transform 4s ease-in-out;display:flex;align-items:center;justify-content:center}
-  .circle span{font-size:var(--size-body);line-height:24px;font-weight:600}
-
-  .reps{color:var(--text2);font-size:var(--size-footnote);line-height:18px;margin-bottom:var(--s4)}
-
-  .controls{display:flex;gap:var(--s2);justify-content:center;align-items:center}
-  .start,.ghost{height:var(--control);border:0;border-radius:var(--r-pill);font:inherit;font-size:var(--size-subhead);line-height:20px;cursor:pointer;
-    transition:opacity .2s ease,background .2s ease}
-  .start{padding:0 var(--s6);background:var(--accent);color:#fff;font-weight:600}
-  .start:active{opacity:.85}
-  .ghost{padding:0 var(--s5);background:var(--bg2);color:var(--text)}
-  .ghost[aria-pressed="true"]{color:var(--accent)}
-  button:focus-visible,input:focus-visible,summary:focus-visible{outline:0;box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 30%,transparent)}
-
-  .custom{margin-top:var(--s6);color:var(--text2);font-size:var(--size-subhead);line-height:20px}
-  .custom summary{cursor:pointer;border-radius:var(--r-pill);display:inline-block;padding:var(--s2) var(--s4)}
-  .custom-row{display:flex;gap:var(--s3);flex-wrap:wrap;justify-content:center;align-items:flex-end;margin-top:var(--s4)}
-  .custom-row label{display:flex;flex-direction:column;gap:var(--s1);font-size:var(--size-footnote);line-height:18px}
-  .custom-row input{width:72px;height:var(--control);padding:0 var(--s4);border:0;border-radius:var(--r-pill);
-    background:var(--bg2);color:var(--text);font:inherit;font-size:var(--size-subhead);text-align:center}
-  .custom-row button{height:var(--control);padding:0 var(--s5);border:0;border-radius:var(--r-pill);background:var(--accent);color:#fff;
-    font:inherit;font-size:var(--size-subhead);font-weight:600;cursor:pointer}
-
-  footer{color:var(--text2);font-size:var(--size-footnote);line-height:18px;padding:var(--s5) var(--page) var(--s6);text-align:center}
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
-
-  html.js .reveal{opacity:0;transform:translateY(var(--s4))}
-  html.js .reveal.in-view{opacity:1;transform:translateY(0);transition:opacity .2s ease-out,transform .2s ease-out}
-  @media (prefers-reduced-motion: reduce){ html.js .reveal{opacity:1;transform:none} }
-</style>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="landing.css">
+<script src="landing.js" defer></script>
 </head>
 <body>
 
-<header>
-  <div class="brand">Airwell</div>
-  <nav><a href="#tool">Try it</a></nav>
+<header class="nav" aria-label="Site">
+  <nav class="nav-links" aria-label="Main">
+    <a href="#features">Features</a>
+    <a href="#get">Get it</a>
+  </nav>
+  <a class="nav-brand" href="#top" aria-label="Airwell home"><img src="icon.svg" alt="" width="28" height="28"><span>Airwell</span></a>
+  <div class="nav-end">
+    <a class="nav-get" href="support.html">Support</a>
+    <a class="btn btn-solid" href="#tool">Breathe</a>
+  </div>
 </header>
 
-<main>
-  <h1>A quiet minute for your breath</h1>
-  <p class="sub">Guided breathing patterns. No account, no download, just breathe.</p>
-
-  <div class="presets reveal" id="presets">
-    <button data-pattern="4,4,4,4" class="active">Box</button>
-    <button data-pattern="4,7,8,0">4-7-8</button>
-    <button data-pattern="4,0,6,0">Relax</button>
-    <button data-pattern="5,0,5,0">Coherent</button>
-  </div>
-
-  <div class="stage" id="tool">
-    <div class="ring"></div>
-    <div class="circle" id="circle"><span id="label">Breathe</span></div>
-  </div>
-
-  <div class="reps" id="reps">Rep <span id="repCount">0</span></div>
-
-  <div class="controls">
-    <button class="start" id="toggle">Start</button>
-    <button class="ghost" id="soundToggle" aria-pressed="false">Sound off</button>
-  </div>
-
-  <details class="custom reveal">
-    <summary>Custom pattern</summary>
-    <div class="custom-row">
-      <label>In <input type="number" id="cIn" min="0" max="30" value="4"></label>
-      <label>Hold <input type="number" id="cHold1" min="0" max="30" value="4"></label>
-      <label>Out <input type="number" id="cOut" min="0" max="30" value="4"></label>
-      <label>Hold <input type="number" id="cHold2" min="0" max="30" value="4"></label>
-      <button id="applyCustom">Use</button>
+<!-- Art, dithered to halftone dots by hand from public domain paintings via Wikimedia Commons: Sandro Botticelli,
+     The Birth of Venus (Zephyr and Aura, Uffizi), Claude Monet, Impression, Sunrise (Musee Marmottan Monet),
+     Katsushika Hokusai, Fine Wind, Clear Morning and The Great Wave off Kanagawa. -->
+<main id="top">
+<section class="hero">
+  <div class="wrap center">
+    <p class="label">Guided breathing</p>
+    <h1>Airwell</h1>
+    <p class="lead">A quiet minute for your breath. No account, no download, just breathe.</p>
+    <div class="cta">
+      <a class="btn btn-solid" href="#tool">Start breathing</a>
+      <a class="btn btn-ghost" href="https://apps.apple.com/app/id6810806058">On the App Store</a>
     </div>
-  </details>
+    <p class="fine">Free on the web. iPhone, iPad and Mac on the App Store.</p>
+  </div>
+
+  <div class="demo-wrap reveal">
+    <div class="stage">
+      <div class="art stage-art" style="--img: url(art/monet.png)" aria-hidden="true"></div>
+      <div class="tool" id="tool">
+        <div class="presets" id="presets">
+          <button data-pattern="4,4,4,4" class="active">Box</button>
+          <button data-pattern="4,7,8,0">4-7-8</button>
+          <button data-pattern="4,0,6,0">Relax</button>
+          <button data-pattern="5,0,5,0">Coherent</button>
+        </div>
+        <div class="breath">
+          <div class="ring"></div>
+          <div class="circle" id="circle"><span id="label">Breathe</span></div>
+        </div>
+        <div class="reps" id="reps">Rep <span id="repCount">0</span></div>
+        <div class="controls">
+          <button class="start" id="toggle">Start</button>
+          <button class="ghost" id="soundToggle" aria-pressed="false">Sound off</button>
+        </div>
+        <details class="custom">
+          <summary>Custom pattern</summary>
+          <div class="custom-row">
+            <label>In <input type="number" id="cIn" min="0" max="30" value="4"></label>
+            <label>Hold <input type="number" id="cHold1" min="0" max="30" value="4"></label>
+            <label>Out <input type="number" id="cOut" min="0" max="30" value="4"></label>
+            <label>Hold <input type="number" id="cHold2" min="0" max="30" value="4"></label>
+            <button id="applyCustom">Use</button>
+          </div>
+        </details>
+      </div>
+    </div>
+    <p class="demo-hint">The real thing. Press Start, or the space bar.</p>
+  </div>
+</section>
+
+<section class="band" id="features">
+  <div class="band-head">
+    <div class="art band-art" style="--img: url(art/zephyr.png)" aria-hidden="true"></div>
+    <div class="band-copy reveal">
+      <p class="label">The west wind, slowed down</p>
+      <h2>Breathe on a count</h2>
+      <p>A circle grows while you breathe in and shrinks while you breathe out. You only have to follow it.</p>
+    </div>
+  </div>
+  <div class="frows">
+    <article class="frow reveal"><div class="art" style="--img: url(art/fuji.png)" aria-hidden="true"></div><div><p class="label">Patterns</p><h3>Four patterns, or your own</h3><p>Box, 4-7-8, Relax and Coherent. Set your own counts for in, hold, out and hold.</p></div></article>
+    <article class="frow reveal"><div class="art" style="--img: url(art/wave.png)" aria-hidden="true"></div><div><p class="label">On your phone</p><h3>Felt, not watched</h3><p>On iPhone a soft tap marks each turn, so you can breathe with your eyes closed.</p></div></article>
+  </div>
+  <div class="cells">
+    <article class="cell reveal"><p class="label">Habit</p><h3>A streak</h3><p>The apps keep your sessions and count the days in a row.</p></article>
+    <article class="cell reveal"><p class="label">Reminder</p><h3>One nudge a day</h3><p>Pick a time. Airwell asks once, then leaves you alone.</p></article>
+    <article class="cell reveal"><p class="label">Private</p><h3>Nothing leaves</h3><p>No account and no tracking. Your history stays on your device.</p></article>
+  </div>
+</section>
+
+<section class="sec" id="get">
+  <div class="wrap center">
+    <p class="label reveal">Get it</p>
+    <h2 class="reveal">Everywhere you are</h2>
+    <p class="body reveal">The page above works on any device. The apps add the taps, the streak and the reminder.</p>
+    <div class="plat-row">
+      <div class="reveal"><small>iOS 17 and up</small><b>iPhone and iPad</b><p>Haptics, history and a daily reminder.</p><a class="btn btn-solid" href="https://apps.apple.com/app/id6810806058">App Store</a></div>
+      <div class="reveal"><small>macOS 14 and up</small><b>Mac</b><p>The same app, in a window of its own.</p><a class="btn btn-solid" href="https://apps.apple.com/app/id6810806058">Mac App Store</a></div>
+      <div class="reveal"><small>Any browser</small><b>Web</b><p>Right here. Nothing to install.</p><a class="btn btn-ghost" href="#tool">Breathe now</a></div>
+    </div>
+  </div>
+</section>
 </main>
 
-<footer class="reveal">airwell.jaybulb.com</footer>
+<footer class="foot">
+  <div class="foot-top">
+    <div class="foot-brand"><img src="icon.svg" alt="" width="40" height="40"><b>Airwell</b><p>A quiet minute for your breath.</p></div>
+    <nav class="foot-cols" aria-label="Footer">
+      <div><p class="label">Airwell</p><a href="#tool">Breathe</a><a href="#features">Features</a><a href="https://apps.apple.com/app/id6810806058">App Store</a><a href="support.html">Support</a></div>
+      <div><p class="label">Source</p><a href="https://github.com/nulljosh/airwell">GitHub</a><a href="https://github.com/nulljosh/airwell/blob/main/WHITEPAPER.md">Whitepaper</a><a href="privacy.html">Privacy</a></div>
+      <div><p class="label">More</p><a href="mailto:trommatic@icloud.com?subject=Airwell">Feedback</a><a href="https://jaybulb.com">More apps</a><a href="#top">Back to top</a></div>
+    </nav>
+  </div>
+  <div class="word-band" aria-hidden="true"><canvas class="word-canvas"></canvas></div>
+  <p class="legal">&copy; 2026 Joshua Trommel &middot; MIT License &middot; <a href="privacy.html">Privacy</a></p>
+</footer>
 
 <script>
   const circle = document.getElementById('circle');
@@ -234,25 +249,7 @@
     }
   });
 
-  // Scroll-triggered reveal for sections below the fold
-  (function () {
-    const els = document.querySelectorAll('.reveal');
-    if (!els.length) return;
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    els.forEach((el) => io.observe(el));
-  })();
-
-  // Subtle parallax on the ambient ring behind the breathing circle
-  (function () {
-    const ring = document.querySelector('.ring');
-    if (!ring || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    let ticking = false;
-    function apply() { ring.style.transform = 'translateY(' + (window.scrollY * 0.06) + 'px)'; ticking = false; }
-    window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(apply); ticking = true; } }, { passive: true });
-  })();
 </script>
-
+<script src="footer-band.js" defer></script>
 </body>
 </html>

@@ -4,11 +4,11 @@ v1.0 (native rewrite, resubmitted 2026-10-03; ASC version string stays 1.0, bump
 Guided breathing, `airwell.jaybulb.com`. One static page: four presets (Box, 4-7-8, Relax, Coherent) driving a CSS-transitioned circle. No backend, no build step.
 
 ## Stack
-- `web/index.html`: everything. Inline CSS, inline JS. Phase timings live in the `pattern` array (inhale, hold, exhale, hold in seconds; 0 skips a phase).
+- `web/index.html`: the landing in the house layout (cyllene/landing is the reference) with the live breather as its demo. `landing.css` styles it, `footer-band.js` draws the engraved footer, `art/` holds halftone masks dithered from public domain paintings. The breather JS stays inline. Phase timings live in the `pattern` array (inhale, hold, exhale, hold in seconds; 0 skips a phase).
 - Cloudflare Worker, static assets only (`[assets] directory = "web"` in `wrangler.toml`), no worker.js — deploy is `npx wrangler deploy`.
 
 ## Structure
-- `web/index.html`: landing page + breathing tool, single file
+- `web/`: landing page + breathing tool (index.html, landing.css, landing.js, footer-band.js, art/)
 - `ios/App/`: the native app (iOS + macOS, one xcodegen target, no web view). `Pattern.swift` (phase math, presets), `Library.swift` (custom patterns, history, streak, reminder, JSON in Application Support), `Runner.swift` (session timer, haptics), `BreatheView`, `PatternsView`, `ProgressTab`, `SettingsView`.
 - Apple rejected 1.0 under 4.3(a) because the app was a web view. The native rewrite is the fix. Never go back to a web view.
 
