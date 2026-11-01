@@ -22,6 +22,8 @@
   header{width:100%;max-width:var(--measure);padding:var(--s5) var(--page) 0;display:flex;justify-content:space-between;align-items:center}
   .brand{font-size:var(--size-body);line-height:24px;font-weight:600}
   nav a{color:var(--accent);text-decoration:none;font-size:var(--size-subhead);line-height:20px}
+  /* the accent blue is 3.7:1 on black; the nav link takes a lighter blue in dark (buttons keep the accent, white text needs it deep) */
+  @media (prefers-color-scheme: dark){nav a{color:#4c9bff}}
 
   main{width:100%;max-width:var(--measure);padding:var(--s7) var(--page) var(--s7);text-align:center}
   h1{font-size:var(--size-large-title);line-height:41px;font-weight:700;letter-spacing:-.022em;margin:0 0 var(--s2)}
