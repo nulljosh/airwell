@@ -12,3 +12,6 @@
 - [ ] (11-01: iOS 1.0 is WAITING_FOR_REVIEW again, macOS live) Airwell iOS 1.0 is REJECTED (macOS 1.0 is READY_FOR_DISTRIBUTION, live). Rejection reason unread: `asc web review show --app 6810806058` hit Apple sign-in 503 on 2026-10-26 (asc paused until 12:20Z). Needs Joshua to run `asc web auth login --apple-id trommatic@icloud.com`, then read the reason and reply or fix. Earlier 4.3/4.2.6 reply (2026-10-05) said the build is the native SwiftUI rewrite; do not resubmit a web view.
 
 ## Ingested 2026-10-30
+
+## Ingested 2026-11-13
+- [ ] Note was the title only ("Air well"), written in a run of App Review status checks. Report its review status. Last known (root roadmap, 2026-11-08): waiting on Apple. Could not re-pull today: the asc API is blocked by an unaccepted Apple agreement (see vault blocked-on-joshua.md).
