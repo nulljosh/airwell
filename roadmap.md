@@ -15,3 +15,7 @@
 
 ## Ingested 2026-11-13
 - [ ] Note was the title only ("Air well"), written in a run of App Review status checks. Report its review status. Last known (root roadmap, 2026-11-08): waiting on Apple. Could not re-pull today: the asc API is blocked by an unaccepted Apple agreement (see vault blocked-on-joshua.md).
+
+## Ingested 2026-11-16
+- [ ] (Note "Windgate") Needs an iOS counterpart; why is Apple rejecting it? Airwell or Windgate, which name is it? Fix the stale name.
+- [ ] (Windgate/Airwell) Landing page should not have the demo on the main page; it should require clicking into the app.
