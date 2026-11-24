@@ -16,3 +16,10 @@
 @media (prefers-reduced-motion: reduce) { .aw-c { transition: none; } }
 .try { padding: 0 0 var(--sp-8); }
 .try .demo-wrap { margin-top: 0; }
+
+/* App Store badge (hero CTA): Apple's black badge, white edge in dark mode */
+.store-badge { display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 16px 0 12px; border-radius: 10px; background: #000; color: #fff; border: 1px solid #a6a6a6; text-decoration: none; line-height: 1; }
+.store-badge svg { flex: none; margin-top: -3px; }
+.store-badge span { display: flex; flex-direction: column; font-size: 21px; font-weight: 600; letter-spacing: -.02em; text-align: left; }
+.store-badge small { font-size: 11px; font-weight: 500; letter-spacing: 0; margin-bottom: 2px; }
+.store-badge:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
