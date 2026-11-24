@@ -1,3 +1,4 @@
+Post: (thread 1/3 posted 2026-11-24 via home composer; replies 2-3 pending)
 Post 1:
 Built a breathing app where the circle is the timer. No numbers to count, no countdown, just a shape that expands and contracts. Four patterns: Box, 4-7-8, Relax, Coherent. airwell.jaybulb.com
 
