@@ -3,7 +3,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 
-const html = readFileSync(new URL("./web/index.html", import.meta.url), "utf8");
+const html = readFileSync(new URL("./web/app/index.html", import.meta.url), "utf8");
 const patterns = [...html.matchAll(/data-pattern="([^"]+)"/g)].map(m => m[1]);
 
 test("every preset is four non-negative numbers", () => {
