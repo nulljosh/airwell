@@ -23,3 +23,29 @@
 .store-badge span { display: flex; flex-direction: column; font-size: 21px; font-weight: 600; letter-spacing: -.02em; text-align: left; }
 .store-badge small { font-size: 11px; font-weight: 500; letter-spacing: 0; margin-bottom: 2px; }
 .store-badge:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+
+/* Top App Store banner */
+.appbanner { display: flex; align-items: center; gap: 12px; padding: 8px 16px; background: var(--bg); border-bottom: 1px solid var(--line); font-size: 14px; }
+.appbanner[hidden] { display: none; }
+.appbanner img { border-radius: 8px; flex: none; }
+.appbanner p { flex: 1; min-width: 0; line-height: 1.3; }
+.appbanner b { display: block; font-weight: 600; }
+.appbanner span { color: var(--sub); }
+.appbanner-get { flex: none; padding: 8px 14px; border-radius: 999px; background: var(--text); color: var(--bg); font-weight: 600; text-decoration: none; white-space: nowrap; }
+.appbanner-x { flex: none; width: 32px; height: 32px; border: 0; border-radius: 50%; background: transparent; color: var(--sub); font-size: 22px; cursor: pointer; }
+@media (max-width: 600px) { .appbanner span { display: none; } .appbanner-get { padding: 8px 12px; } }
+
+/* Keyrate-style body: one card, three lines, one where-line */
+.show { padding: 64px 16px 96px; }
+.shot { max-width: 520px; margin: 0 auto; padding: 32px 32px 28px; border-radius: 28px; background: color-mix(in srgb, var(--text) 4%, var(--bg)); border: 1px solid var(--line); text-align: center; }
+.shot-ring { width: 128px; height: 128px; margin: 0 auto 20px; border-radius: 50%; display: grid; place-items: center; background: color-mix(in srgb, var(--text) 10%, transparent); box-shadow: 0 0 0 14px color-mix(in srgb, var(--text) 5%, transparent); font-weight: 600; animation: shot-breathe 16s ease-in-out infinite; }
+@keyframes shot-breathe { 0%,100% { transform: scale(.82) } 25%,50% { transform: scale(1.06) } 75% { transform: scale(.82) } }
+@media (prefers-reduced-motion: reduce) { .shot-ring { animation: none; } }
+.shot-num { font-size: 4rem; font-weight: 700; line-height: 1; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.shot-num i { font-style: normal; color: var(--sub); margin: 0 .12em; }
+.shot-cap { margin-top: 16px; font-size: .875rem; color: var(--sub); }
+.says { list-style: none; padding: 0; max-width: 820px; margin: 56px auto 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; line-height: 1.5; color: var(--sub); }
+.says b { display: block; color: var(--text); font-weight: 650; margin-bottom: 4px; }
+.where { text-align: center; margin-top: 64px; color: var(--sub); }
+.where a { color: var(--text); font-weight: 600; }
+@media (max-width: 700px) { .says { grid-template-columns: 1fr; gap: 20px; text-align: center; } .shot { padding: 24px 16px; } .shot-num { font-size: 3.25rem; } }

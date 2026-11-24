@@ -20,15 +20,22 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="landing.css">
-<link rel="stylesheet" href="hero.css?v=4">
+<link rel="stylesheet" href="hero.css?v=5">
 <script src="landing.js" defer></script>
 </head>
 <body>
 
+<div class="appbanner" id="appbanner" hidden>
+  <img src="icon.svg" alt="" width="36" height="36">
+  <p><b>Airwell for iPhone, iPad and Mac</b><span>Taps on every turn, a streak and a daily nudge.</span></p>
+  <a class="appbanner-get" href="https://apps.apple.com/app/id6810806058">Download on the App Store</a>
+  <button class="appbanner-x" type="button" aria-label="Dismiss">&times;</button>
+</div>
+<script>/* own banner everywhere except iOS Safari, which shows Apple's Smart App Banner */(()=>{const b=document.getElementById('appbanner'),u=navigator.userAgent;let off=false;try{off=localStorage.getItem('aw-banner')==='off'}catch(e){}if(off||(/iP(hone|ad|od)/.test(u)&&!/CriOS|FxiOS|EdgiOS/.test(u)))return;b.hidden=false;b.querySelector('.appbanner-x').onclick=()=>{b.hidden=true;try{localStorage.setItem('aw-banner','off')}catch(e){}}})()</script>
 <header class="nav" aria-label="Site">
   <nav class="nav-links" aria-label="Main">
     <a href="#features">Features</a>
-    <a href="#get">Get it</a>
+    <a href="/app/">App</a>
   </nav>
   <a class="nav-brand" href="#top" aria-label="Airwell home"><img src="icon.svg" alt="" width="28" height="28"><span>Airwell</span></a>
   <div class="nav-end">
@@ -49,45 +56,26 @@
     <p class="lead">Four breathing patterns and a circle to follow. No account, no download, just breathe.</p>
     <div class="cta">
       <a class="btn btn-solid" href="/app/">Start breathing</a>
-      <a class="store-badge" href="https://apps.apple.com/app/id6810806058" aria-label="Download on the App Store"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg><span><small>Download on the</small>App Store</span></a>
+      <a class="btn btn-ghost" href="https://github.com/nulljosh/airwell">Source</a>
     </div>
-    <p class="fine">Free on the web. iPhone, iPad and Mac on the App Store.</p>
+    <p class="fine">Free. No account.</p>
   </div>
 
 </section>
 
 
-<section class="band" id="features">
-  <div class="band-head">
-    <div class="art band-art" style="--img: url(art/zephyr.png)" aria-hidden="true"></div>
-    <div class="band-copy reveal">
-      <p class="label">The west wind, slowed down</p>
-      <h2>Breathe on a count</h2>
-      <p>A circle grows while you breathe in and shrinks while you breathe out. You only have to follow it.</p>
-    </div>
+<section class="show reveal" id="features">
+  <div class="shot" aria-label="A sample round of box breathing: in 4, hold 4, out 4, hold 4">
+    <div class="shot-ring" aria-hidden="true"><span>Inhale</span></div>
+    <p class="shot-num">4<i>·</i>4<i>·</i>4<i>·</i>4</p>
+    <p class="shot-cap">Box breathing. In, hold, out, hold.</p>
   </div>
-  <div class="frows">
-    <article class="frow reveal"><div class="art" style="--img: url(art/fuji.png)" aria-hidden="true"></div><div><p class="label">Patterns</p><h3>Four patterns, or your own</h3><p>Box, 4-7-8, Relax and Coherent. Set your own counts for in, hold, out and hold.</p></div></article>
-    <article class="frow reveal"><div class="art" style="--img: url(art/wave.png)" aria-hidden="true"></div><div><p class="label">On your phone</p><h3>Felt, not watched</h3><p>On iPhone a soft tap marks each turn, so you can breathe with your eyes closed.</p></div></article>
-  </div>
-  <div class="cells">
-    <article class="cell reveal"><p class="label">Habit</p><h3>A streak</h3><p>The apps keep your sessions and count the days in a row.</p></article>
-    <article class="cell reveal"><p class="label">Reminder</p><h3>One nudge a day</h3><p>Pick a time. Airwell asks once, then leaves you alone.</p></article>
-    <article class="cell reveal"><p class="label">Private</p><h3>Nothing leaves</h3><p>No account and no tracking. Your history stays on your device.</p></article>
-  </div>
-</section>
-
-<section class="sec" id="get">
-  <div class="wrap center">
-    <p class="label reveal">Get it</p>
-    <h2 class="reveal">Everywhere you are</h2>
-    <p class="body reveal">The web app works on any device. The apps add the taps, the streak and the reminder.</p>
-    <div class="plat-row">
-      <div class="reveal"><small>iOS 17 and up</small><b>iPhone and iPad</b><p>Haptics, history and a daily reminder.</p><a class="btn btn-solid" href="https://apps.apple.com/app/id6810806058">App Store</a></div>
-      <div class="reveal"><small>macOS 14 and up</small><b>Mac</b><p>The same app, in a window of its own.</p><a class="btn btn-solid" href="https://apps.apple.com/app/id6810806058">Mac App Store</a></div>
-      <div class="reveal"><small>Any browser</small><b>Web</b><p>In your browser. Nothing to install.</p><a class="btn btn-ghost" href="/app/">Breathe now</a></div>
-    </div>
-  </div>
+  <ul class="says">
+    <li><b>Four patterns, or your own.</b> Box, 4-7-8, Relax and Coherent.</li>
+    <li><b>Felt, not watched.</b> On iPhone a soft tap marks each turn.</li>
+    <li><b>Nothing leaves.</b> No account, no tracking. History stays on your device.</li>
+  </ul>
+  <p class="where" id="get">Free on the web. iPhone, iPad and Mac on the <a href="https://apps.apple.com/app/id6810806058">App Store</a>. <a href="/app/">Start breathing &rarr;</a></p>
 </section>
 </main>
 
