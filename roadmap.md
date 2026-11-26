@@ -18,5 +18,3 @@
 ## Ingested 2026-11-13
 
 ## Ingested 2026-11-16
-- [ ] (Note "Windgate") Needs an iOS counterpart; why is Apple rejecting it? Airwell or Windgate, which name is it? Fix the stale name.
-- [ ] (Windgate/Airwell) Landing page should not have the demo on the main page; it should require clicking into the app.
