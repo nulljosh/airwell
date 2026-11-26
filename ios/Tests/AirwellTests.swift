@@ -1,5 +1,6 @@
 import Testing
 import Foundation
+import SwiftUI
 @testable import Airwell
 
 @Test func boxCyclesThroughFourPhases() {
@@ -92,4 +93,30 @@ private func library(_ dir: URL = FileManager.default.temporaryDirectory.appendi
     r.begin(Pattern.presets[0], minutes: 3, now: t0)
     r.stop(now: t0.addingTimeInterval(42))
     #expect(ended?.1 == 42 && ended?.2 == false)
+}
+
+@Test func everyPresetIsReadable() {
+    for p in Palette.presets {
+        #expect(p.onBreath.contrast(with: p.breath) >= 4.5, "text on the circle, \(p.name)")
+        #expect(p.accent.ink.contrast(with: p.accent) >= 4.5, "button label, \(p.name)")
+    }
+    #expect(RGB(1, 1, 0.6).ink == RGB(0, 0, 0), "light colours get black text")
+    #expect(RGB(0.1, 0.1, 0.3).ink == RGB(1, 1, 1), "dark colours get white text")
+    #expect(Palette.night.isDark && !Palette.paper.isDark)
+}
+
+@MainActor @Test func themePersists() {
+    let defaults = UserDefaults(suiteName: UUID().uuidString)!
+    let file = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString + ".json")
+    let a = Library(file: file, defaults: defaults)
+    #expect(a.palette.id == "night")
+    a.customTheme.accent = RGB(0.2, 0.4, 0.6)
+    a.themeID = "custom"
+    let b = Library(file: file, defaults: defaults)
+    #expect(b.palette.id == "custom" && b.palette.accent == RGB(0.2, 0.4, 0.6))
+}
+
+@Test func wideGamutColoursAreClamped() {
+    let p3 = RGB(Color(.displayP3, red: 1, green: 0, blue: 0))
+    #expect((0...1).contains(p3.r) && (0...1).contains(p3.g) && (0...1).contains(p3.b))
 }

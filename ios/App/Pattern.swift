@@ -5,9 +5,9 @@ enum Phase: String {
 
     var label: String {
         switch self {
-        case .inhale: "Breathe in"
-        case .exhale: "Breathe out"
-        case .holdIn, .holdOut: "Hold"
+        case .inhale: String(localized: "Breathe in")
+        case .exhale: String(localized: "Breathe out")
+        case .holdIn, .holdOut: String(localized: "Hold")
         }
     }
 }
@@ -29,6 +29,9 @@ struct Pattern: Codable, Identifiable, Hashable {
     var isCustom = false
 
     static let low = 0.45
+
+    /// Built-in names are translated, names you typed are shown as is.
+    var title: String { isCustom ? name : L(name) }
 
     var cycle: Double { inhale + holdIn + exhale + holdOut }
     var isValid: Bool { !name.trimmingCharacters(in: .whitespaces).isEmpty && inhale > 0 && exhale > 0 }

@@ -22,6 +22,8 @@ final class Library: ObservableObject {
     @Published var reminderOn: Bool { didSet { defaults.set(reminderOn, forKey: "reminderOn"); syncReminder() } }
     @Published var reminderTime: Date { didSet { defaults.set(reminderTime, forKey: "reminderTime"); syncReminder() } }
     @Published var reminderDenied = false
+    @Published var themeID: String { didSet { defaults.set(themeID, forKey: "theme") } }
+    @Published var customTheme: Palette { didSet { defaults.set(try? JSONEncoder().encode(customTheme), forKey: "customTheme") } }
 
     nonisolated static var defaultFile: URL {
         let dir = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
@@ -35,6 +37,8 @@ final class Library: ObservableObject {
         selectedID = UUID(uuidString: defaults.string(forKey: "selected") ?? "") ?? Pattern.presets[0].id
         minutes = defaults.object(forKey: "minutes") as? Int ?? 3
         haptics = defaults.object(forKey: "haptics") as? Bool ?? true
+        themeID = defaults.string(forKey: "theme") ?? Palette.night.id
+        customTheme = (defaults.data(forKey: "customTheme").flatMap { try? JSONDecoder().decode(Palette.self, from: $0) }) ?? .custom()
         reminderOn = defaults.bool(forKey: "reminderOn")
         reminderTime = defaults.object(forKey: "reminderTime") as? Date
             ?? Calendar.current.date(from: DateComponents(hour: 20, minute: 0))!
@@ -49,6 +53,10 @@ final class Library: ObservableObject {
     private func save() {
         try? JSONEncoder().encode(Saved(custom: custom, records: records)).write(to: file, options: .atomic)
     }
+
+    // MARK: theme
+
+    var palette: Palette { themeID == "custom" ? customTheme : Palette.presets.first { $0.id == themeID } ?? .night }
 
     // MARK: patterns
 
@@ -116,8 +124,8 @@ final class Library: ObservableObject {
             }
             reminderDenied = false
             let content = UNMutableNotificationContent()
-            content.title = "Time to breathe"
-            content.body = "A few minutes is enough."
+            content.title = String(localized: "Time to breathe")
+            content.body = String(localized: "A few minutes is enough.")
             let parts = Calendar.current.dateComponents([.hour, .minute], from: time)
             let trigger = UNCalendarNotificationTrigger(dateMatching: parts, repeats: true)
             try? await center.add(UNNotificationRequest(identifier: "daily", content: content, trigger: trigger))

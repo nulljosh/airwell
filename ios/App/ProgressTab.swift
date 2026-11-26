@@ -2,16 +2,14 @@ import SwiftUI
 
 struct ProgressTab: View {
     @EnvironmentObject var library: Library
+    @Environment(\.palette) private var palette
+    @Environment(\.dynamicTypeSize) private var typeSize
 
     var body: some View {
         NavigationStack {
             List {
                 Section {
-                    HStack {
-                        stat("\(library.streak())", "day streak")
-                        stat("\(library.minutesThisWeek())", "min this week")
-                        stat("\(library.records.count)", "sessions")
-                    }
+                    stats
                     .listRowBackground(Color.clear)
                 }
                 Section("History") {
@@ -21,7 +19,7 @@ struct ProgressTab: View {
                     ForEach(library.records.prefix(60)) { r in
                         HStack {
                             VStack(alignment: .leading, spacing: 2) {
-                                Text(r.pattern)
+                                Text(L(r.pattern))
                                 Text(r.date.formatted(date: .abbreviated, time: .shortened)).font(.subheadline).foregroundStyle(.secondary)
                             }
                             Spacer()
@@ -32,19 +30,34 @@ struct ProgressTab: View {
                 }
             }
             .scrollContentBackground(.hidden)
-            .background(Theme.background)
+            .background(palette.background.color)
             .navigationTitle("Progress")
         }
     }
 
-    private func stat(_ value: String, _ label: String) -> some View {
+    @ViewBuilder private var tiles: some View {
+        stat(library.streak(), "day streak")
+        stat(library.minutesThisWeek(), "min this week")
+        stat(library.records.count, "sessions")
+    }
+
+    /// Big text: stack the tiles so labels never break mid-word.
+    @ViewBuilder private var stats: some View {
+        if typeSize.isAccessibilitySize { VStack(spacing: 16) { tiles } } else { HStack { tiles } }
+    }
+
+    private func stat(_ value: Int, _ label: LocalizedStringKey) -> some View {
         VStack(spacing: 4) {
-            Text(value).font(.largeTitle.weight(.bold)).monospacedDigit()
-            Text(label).font(.footnote).foregroundStyle(.secondary)
+            Text(value, format: .number).font(.largeTitle.weight(.bold)).monospacedDigit()
+                .contentTransition(.numericText())
+            Text(label).font(.footnote).foregroundStyle(.secondary).multilineTextAlignment(.center)
         }
         .frame(maxWidth: .infinity)
+        .animation(.smooth, value: value)
         .accessibilityElement(children: .combine)
     }
 
-    private func duration(_ s: Int) -> String { s < 60 ? "\(s)s" : s % 60 == 0 ? "\(s / 60) min" : "\(s / 60)m \(s % 60)s" }
+    private func duration(_ s: Int) -> String {
+        Duration.seconds(s).formatted(.units(allowed: [.minutes, .seconds], width: .abbreviated))
+    }
 }

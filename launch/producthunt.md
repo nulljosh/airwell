@@ -5,24 +5,22 @@ Tagline (<=60 chars):
 A quiet minute for your breath.
 
 Description (<=260 chars):
-Four guided breathing patterns and a circle that expands and contracts on your behalf. No account, no download, no timer running out on you. Pick a pattern, breathe with it. That's the whole product.
+Guided breathing for iPhone and Mac. Box, 4-7-8, Relax and Coherent, or build your own. A circle sets the pace, a soft tap marks each change. Five themes and your own colours, 11 languages, no account, nothing leaves your device. Free.
 
 Topics (3):
-Health, Productivity, Web App
+Health, Meditation, iOS
 
 First comment (maker story):
-I built Airwell because counting my own breaths defeated the point. Every time I tried box breathing or 4-7-8 from a list of instructions, half my attention went to holding the count in my head instead of just breathing. The one thing I was supposed to let go of, I couldn't.
+I built Airwell because counting my own breaths defeated the point. Every time I tried box breathing or 4-7-8, half my attention went to holding the count in my head instead of just breathing.
 
-So I stripped it down to one moving shape. A circle expands and contracts on a CSS transition timed to the current phase, so the motion of the circle is the timer. There's no number to track, no countdown ticking down at you. When a phase ends, the next one starts, and it loops until you stop it.
+So it is one moving circle. It grows on the inhale, holds, shrinks on the exhale. Your phone taps softly at each change, so you can close your eyes and still know where you are.
 
-Four patterns ship: Box (4-4-4-4), 4-7-8, Relax, and Coherent. You pick one and the circle does the counting for you. No account, no onboarding, no data leaving your browser. Dark by default, light if your system prefers it. One screen, one shape, nothing else competing for your eyes.
+What is in it: four built-in patterns and an editor for your own, a streak so you can see the days add up, a daily reminder, and themes (five presets plus colours you pick yourself, with text that adjusts so it always stays readable). It speaks English, Spanish, French, German, Italian, Portuguese, Japanese, Korean, Chinese (both), Russian and Arabic. VoiceOver announces each phase, Dynamic Type scales, and Reduce Motion swaps the movement for a fade.
 
-I put it on the web first because a breathing tool should have zero friction between wanting to breathe and actually doing it. The App Store version exists for people who want it on their home screen without a tab open.
-
-Airwell is $0.99 upfront on iOS, free on the web.
+No account, no ads, no tracking. Your history stays on the device. It is free.
 
 Pricing line:
-$0.99 upfront on iOS, free on the web.
+Free.
 
 Links:
 Web: https://airwell.jaybulb.com

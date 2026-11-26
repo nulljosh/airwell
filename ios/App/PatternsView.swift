@@ -2,6 +2,7 @@ import SwiftUI
 
 struct PatternsView: View {
     @EnvironmentObject var library: Library
+    @Environment(\.palette) private var palette
     @State private var editing: Pattern?
 
     var body: some View {
@@ -22,7 +23,7 @@ struct PatternsView: View {
                 }
             }
             .scrollContentBackground(.hidden)
-            .background(Theme.background)
+            .background(palette.background.color)
             .navigationTitle("Patterns")
             .toolbar {
                 Button("New pattern", systemImage: "plus") {
@@ -39,13 +40,15 @@ struct PatternsView: View {
         } label: {
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
-                    Text(p.name).foregroundStyle(.primary)
+                    Text(p.title).foregroundStyle(.primary)
                     Text(p.summary).font(.subheadline).foregroundStyle(.secondary)
                 }
                 Spacer()
-                if library.selectedID == p.id { Image(systemName: "checkmark").foregroundStyle(Theme.breath) }
+                if library.selectedID == p.id { Image(systemName: "checkmark").foregroundStyle(palette.breath.color).transition(.scale.combined(with: .opacity)) }
             }
         }
+        .animation(.snappy, value: library.selectedID)
+        .sensoryFeedback(trigger: library.selectedID) { _, _ in library.haptics ? .selection : nil }
         .accessibilityAddTraits(library.selectedID == p.id ? .isSelected : [])
     }
 }
@@ -65,7 +68,7 @@ struct PatternEditor: View {
                 stepper("Hold", $pattern.holdOut, min: 0)
                 Text("One breath takes \(pattern.cycle.formatted()) seconds.").foregroundStyle(.secondary)
             }
-            .navigationTitle(pattern.name.isEmpty ? "New pattern" : pattern.name)
+            .navigationTitle(pattern.name.isEmpty ? L("New pattern") : pattern.name)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) { Button("Cancel") { dismiss() } }
                 ToolbarItem(placement: .confirmationAction) {
@@ -81,9 +84,10 @@ struct PatternEditor: View {
         .presentationDetents([.medium, .large])
     }
 
-    private func stepper(_ title: String, _ value: Binding<Double>, min: Double) -> some View {
+    private func stepper(_ title: LocalizedStringKey, _ value: Binding<Double>, min: Double) -> some View {
         Stepper(value: value, in: min...12, step: 0.5) {
             HStack { Text(title); Spacer(); Text("\(value.wrappedValue.formatted()) s").foregroundStyle(.secondary) }
+                .accessibilityElement(children: .combine)
         }
     }
 }
